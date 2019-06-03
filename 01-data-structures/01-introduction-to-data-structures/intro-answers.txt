@@ -1,0 +1,29 @@
+
+LINE
+How does your data structure allow developers to access and manipulate the data?
+    Using the index, the array can be accessed and data can be manipulated by iterating through the array structure.
+
+If a developer wanted to find a specific element in your data structure, how would you search for it?
+    The include? method is one way to find a specific element in the array.
+
+What other real-world data can each structure represent?
+    If the Bloc program went on forever each checkpoint until the array was go to work everyday.
+
+
+
+
+
+
+
+
+SCREEN
+
+How does your data structure allow developers to access and manipulate the data?
+  Nested array access with x and y values for the matrix.
+  Manipulating the data with the map or collect method should work.
+
+If a developer wanted to find a specific element in your data structure, how would you search for it?
+    Each or each_with_index would find a specific element.
+
+What other real-world data can each structure represent?
+  Automated parking lot with assigned spots, checking time tickets to spots.
