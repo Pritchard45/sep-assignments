@@ -1,0 +1,16 @@
+Explain why doubling the size of the underlying array of your HashClass may be a poor idea.
+
+Array usage has the potential to ask for more memory than the OS allows. Recursively doubling the size of the Array that isn't deleted makes this
+a not as practical choice in any fast paced environment.
+
+
+
+... ["Empire Strikes Back"] = "Excellent" - Hash: 44
+ ["A New Hope"] = "Average" - Hash: 43
+ ["Return of the Jedi"] = "The Best" - Hash: 30
+.. ["key"] = "value" - Hash: 1
+. ["The Lord of the Rings: The Fellowship of the Ring"] = "3 hours, 48 minutes" - Hash: 5
+ ["The Lord of the Rings: The Two Towers"] = "3 hours, 55 minutes" - Hash: 4
+ ["The Lord of the Rings: The Fellowship of the Ring"] = "3 hours, 48 minutes" - Hash: 17
+ ["The Lord of the Rings: The Two Towers"] = "3 hours, 55 minutes" - Hash: 4
+.
