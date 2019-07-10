@@ -1,3 +1,5 @@
+require_relative 'hash_item'
+
 class HashClass
 
   def initialize(size)
@@ -35,7 +37,12 @@ class HashClass
   # We are hashing based on strings, let's use the ascii value of each string as
   # a starting point.
   def index(key, size)
-    key.sum % size
+    if @items[key.sum % size] && @items[key.sum % size].key != key
+      resize
+      key.sum % size
+    else
+      key.sum % size
+    end
   end
 
   # Simple method to return the number of items in the hash
