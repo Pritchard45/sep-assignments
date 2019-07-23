@@ -1,9 +1,10 @@
 Explain why doubling the size of the underlying array of your HashClass may be a poor idea.
 
-Array usage has the potential to ask for more memory than the OS allows. Recursively doubling the size of the Array that isn't deleted makes this
-a not as practical choice in any fast paced environment.
-
-
+When the computer accesses memory, the computer will grab a portion and cache it for faster access.
+That portion works well for arrays because they are stored next to each other in memory, and that portion will have some of the array data.
+If the array continues to double when a collision occurs, the new values that get pushed into the array can become further apart.
+Which then it is more and more likely that the computer grabs less and less information from the array when it is piecing together that portion of data.
+This causes more RAM lookups which are very slow.
 
 ... ["Empire Strikes Back"] = "Excellent" - Hash: 44
  ["A New Hope"] = "Average" - Hash: 43
