@@ -44,6 +44,7 @@ class LinkedList
     end
   end
 
+
   # This method removes `node` from the list and must keep the rest of the list intact.
   def delete(node)
     if !@head.nil?

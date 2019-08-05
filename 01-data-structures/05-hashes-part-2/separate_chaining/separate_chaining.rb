@@ -72,10 +72,12 @@ class SeparateChaining
   end
 
   def print
-    for i in 0..self.size-1
+    i = size
+    while i >= 0
       if !@lists[i].nil?
-        @lists[i].print(i)
+        puts " [\"#{@lists[i].key}\"] = \"#{@lists[i].value}\" - Hash: #{i}"
       end
+      i = i - 1
     end
   end
 end
