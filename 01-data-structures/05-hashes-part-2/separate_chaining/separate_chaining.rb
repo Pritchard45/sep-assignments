@@ -1,3 +1,5 @@
+
+require_relative 'node'
 require_relative 'linked_list'
 
 class SeparateChaining
@@ -45,13 +47,16 @@ class SeparateChaining
 
   # Calculate the current load factor
   def load_factor
+
     x = 0.0
     for i in 0..self.size-1
       if !@lists[i].nil?
         x += @lists[i].size
+          puts print()
       end
     end
     x / self.size
+
   end
 
   # Simple method to return the number of items in the hash
@@ -72,12 +77,10 @@ class SeparateChaining
   end
 
   def print
-    i = size
-    while i >= 0
+    for i in 0..self.size-1
       if !@lists[i].nil?
-        puts " [\"#{@lists[i].key}\"] = \"#{@lists[i].value}\" - Hash: #{i}"
+        @lists[i].print(i)
       end
-      i = i - 1
     end
   end
 end

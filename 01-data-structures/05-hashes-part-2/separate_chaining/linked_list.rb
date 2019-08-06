@@ -35,14 +35,14 @@ class LinkedList
 
   # This method prints out a representation of the list.
   def print(hash)
-    node = @head
-    i = 0
-    while !node.nil?
-      puts "Hash: #{hash} -> Position: #{i} -> Key: #{node.key} -> Value: #{node.value}"
-      node = node.next
-      i += 1
-    end
-  end
+     node = @head
+     x = 0
+     while !node.nil?
+       puts "Hash: #{hash} -> Position: #{x} -> Key: #{node.key} -> Value: #{node.value}"
+       node = node.next
+       x += 1
+     end
+   end
 
 
   # This method removes `node` from the list and must keep the rest of the list intact.
