@@ -29,4 +29,4 @@
   You put the keys into that slot.
   After this is done then you sort.
 
-  It is most likely very time consuming but I think this would work to some extent for smaller tables.
+  It is most likely very time consuming but I think this would work to some extent for smaller tables
