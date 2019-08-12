@@ -3,96 +3,96 @@ include RSpec
 require_relative 'binary_search_tree'
 
 RSpec.describe BinarySearchTree, type: Class do
-  let (:root) { Node.new("The Matrix", 87) }
-
+  let (:root) { Node.new("Guardians of the Galaxy", 87) }
+  # these are not accurate scores as majority of these movies have the same score.
   let (:tree) { BinarySearchTree.new(root) }
-  let (:pacific_rim) { Node.new("Pacific Rim", 72) }
-  let (:braveheart) { Node.new("Braveheart", 78) }
-  let (:jedi) { Node.new("Star Wars: Return of the Jedi", 80) }
-  let (:donnie) { Node.new("Donnie Darko", 85) }
-  let (:inception) { Node.new("Inception", 86) }
-  let (:district) { Node.new("District 9", 90) }
-  let (:shawshank) { Node.new("The Shawshank Redemption", 91) }
-  let (:martian) { Node.new("The Martian", 92) }
-  let (:hope) { Node.new("Star Wars: A New Hope", 93) }
-  let (:empire) { Node.new("Star Wars: The Empire Strikes Back", 94) }
-  let (:mad_max_2) { Node.new("Mad Max 2: The Road Warrior", 98) }
+  let (:thor_2) { Node.new("Thor: The Dark World", 72) }
+  let (:ultron) { Node.new("Avengers: Age of Ultron", 78) }
+  let (:ant_man) { Node.new("Ant-Man", 80) }
+  let (:doctor) { Node.new("Dr. Strange", 85) }
+  let (:spider_man) { Node.new("Spider-Man: Far From Home", 86) }
+  let (:cap_america) { Node.new("Captain America: Civil War", 90) }
+  let (:avengers) { Node.new("The Avengers", 91) }
+  let (:thor_3) { Node.new("Thor: Ragnarok", 92) }
+  let (:iron_man) { Node.new("Iron Man", 93) }
+  let (:endgame) { Node.new("Avengers: Endgame", 94) }
+  let (:black_panther) { Node.new("Black Panther", 98) }
 
   describe "#insert(data)" do
     it "properly inserts a new node as a left child" do
-      tree.insert(root, pacific_rim)
-      expect(root.left.title).to eq "Pacific Rim"
+      tree.insert(root, thor_2)
+      expect(root.left.title).to eq "Thor: The Dark World"
     end
 
     it "properly inserts a new node as a left-left child" do
-      tree.insert(root, braveheart)
-      tree.insert(root, pacific_rim)
-      expect(root.left.left.title).to eq "Pacific Rim"
+      tree.insert(root, ultron)
+      tree.insert(root, thor_2)
+      expect(root.left.left.title).to eq "Thor: The Dark World"
     end
 
     it "properly inserts a new node as a left-right child" do
-      tree.insert(root, donnie)
-      tree.insert(root, inception)
-      expect(root.left.right.title).to eq "Inception"
+      tree.insert(root, doctor)
+      tree.insert(root, spider_man)
+      expect(root.left.right.title).to eq "Spider-Man: Far From Home"
     end
 
     it "properly inserts a new node as a right child" do
-      tree.insert(root, district)
-      expect(root.right.title).to eq "District 9"
+      tree.insert(root, cap_america)
+      expect(root.right.title).to eq "Captain America: Civil War"
     end
 
     it "properly inserts a new node as a right-left child" do
-      tree.insert(root, hope)
-      tree.insert(root, martian)
-      expect(root.right.left.title).to eq "The Martian"
+      tree.insert(root, iron_man)
+      tree.insert(root, thor_3)
+      expect(root.right.left.title).to eq "Thor: Ragnarok"
     end
 
     it "properly inserts a new node as a right-right child" do
-      tree.insert(root, empire)
-      tree.insert(root, mad_max_2)
-      expect(root.right.right.title).to eq "Mad Max 2: The Road Warrior"
+      tree.insert(root, endgame)
+      tree.insert(root, black_panther)
+      expect(root.right.right.title).to eq "Black Panther"
     end
   end
 
   describe "#find(data)" do
     it "handles nil gracefully" do
-      tree.insert(root, empire)
-      tree.insert(root, mad_max_2)
+      tree.insert(root, endgame)
+      tree.insert(root, black_panther)
       expect(tree.find(root, nil)).to eq nil
     end
 
     it "properly finds a left node" do
-      tree.insert(root, pacific_rim)
-      expect(tree.find(root, pacific_rim.title).title).to eq "Pacific Rim"
+      tree.insert(root, thor_2)
+      expect(tree.find(root, thor_2.title).title).to eq "Thor: The Dark World"
     end
 
     it "properly finds a left-left node" do
-      tree.insert(root, braveheart)
-      tree.insert(root, pacific_rim)
-      expect(tree.find(root, pacific_rim.title).title).to eq "Pacific Rim"
+      tree.insert(root, ultron)
+      tree.insert(root, thor_2)
+      expect(tree.find(root, thor_2.title).title).to eq "Thor: The Dark World"
     end
 
     it "properly finds a left-right node" do
-      tree.insert(root, donnie)
-      tree.insert(root, inception)
-      expect(tree.find(root, inception.title).title).to eq "Inception"
+      tree.insert(root, doctor)
+      tree.insert(root, spider_man)
+      expect(tree.find(root, spider_man.title).title).to eq "Spider-Man: Far From Home"
     end
 
     it "properly finds a right node" do
-      tree.insert(root, district)
-      expect(tree.find(root, district.title).title).to eq "District 9"
+      tree.insert(root, cap_america)
+      expect(tree.find(root, cap_america.title).title).to eq "Captain America: Civil War"
     end
 
     it "properly finds a right-left node" do
-      tree.insert(root, hope)
-      tree.insert(root, martian)
-      expect(tree.find(root, martian.title).title).to eq "The Martian"
+      tree.insert(root, iron_man)
+      tree.insert(root, thor_3)
+      expect(tree.find(root, thor_3.title).title).to eq "Thor: Ragnarok"
     end
 
     it "properly finds a right-right node" do
-      tree.insert(root, empire)
-      tree.insert(root, mad_max_2)
-      expect(tree.find(root, mad_max_2.title).title).to eq "Mad Max 2: The Road Warrior"
+      tree.insert(root, endgame)
+      tree.insert(root, black_panther)
+      expect(tree.find(root, black_panther.title).title).to eq "Black Panther"
     end
   end
 
@@ -102,74 +102,74 @@ RSpec.describe BinarySearchTree, type: Class do
     end
 
     it "properly deletes a left node" do
-      tree.insert(root, hope)
-      tree.delete(root, hope.title)
-      expect(tree.find(root, hope.title)).to be_nil
+      tree.insert(root, iron_man)
+      tree.delete(root, iron_man.title)
+      expect(tree.find(root, iron_man.title)).to be_nil
     end
 
     it "properly deletes a left-left node" do
-      tree.insert(root, braveheart)
-      tree.insert(root, pacific_rim)
-      tree.delete(root, pacific_rim.title)
-      expect(tree.find(root, pacific_rim.title)).to be_nil
+      tree.insert(root, ultron)
+      tree.insert(root, thor_2)
+      tree.delete(root, thor_2.title)
+      expect(tree.find(root, thor_2.title)).to be_nil
     end
 
     it "properly deletes a left-right node" do
-      tree.insert(root, donnie)
-      tree.insert(root, inception)
-      tree.delete(root, inception.title)
-      expect(tree.find(root, inception.title)).to be_nil
+      tree.insert(root, doctor)
+      tree.insert(root, spider_man)
+      tree.delete(root, spider_man.title)
+      expect(tree.find(root, spider_man.title)).to be_nil
     end
 
     it "properly deletes a right node" do
-      tree.insert(root, district)
-      tree.delete(root, district.title)
-      expect(tree.find(root, district.title)).to be_nil
+      tree.insert(root, cap_america)
+      tree.delete(root, cap_america.title)
+      expect(tree.find(root, cap_america.title)).to be_nil
     end
 
     it "properly deletes a right-left node" do
-      tree.insert(root, hope)
-      tree.insert(root, martian)
-      tree.delete(root, martian.title)
-      expect(tree.find(root, martian.title)).to be_nil
+      tree.insert(root, iron_man)
+      tree.insert(root, thor_3)
+      tree.delete(root, thor_3.title)
+      expect(tree.find(root, thor_3.title)).to be_nil
     end
 
     it "properly deletes a right-right node" do
-      tree.insert(root, empire)
-      tree.insert(root, mad_max_2)
-      tree.delete(root, mad_max_2.title)
-      expect(tree.find(root, mad_max_2.title)).to be_nil
+      tree.insert(root, endgame)
+      tree.insert(root, black_panther)
+      tree.delete(root, black_panther.title)
+      expect(tree.find(root, black_panther.title)).to be_nil
     end
   end
 
   describe "#printf" do
      specify {
-       expected_output = "The Matrix: 87\nStar Wars: Return of the Jedi: 80\nStar Wars: A New Hope: 93\nPacific Rim: 72\nInception: 86\nThe Martian: 92\nStar Wars: The Empire Strikes Back: 94\nBraveheart: 78\nThe Shawshank Redemption: 91\nMad Max 2: The Road Warrior: 98\nDistrict 9: 90\n"
-       tree.insert(root, hope)
-       tree.insert(root, empire)
-       tree.insert(root, jedi)
-       tree.insert(root, martian)
-       tree.insert(root, pacific_rim)
-       tree.insert(root, inception)
-       tree.insert(root, braveheart)
-       tree.insert(root, shawshank)
-       tree.insert(root, district)
-       tree.insert(root, mad_max_2)
+       expected_output = "Guardians of the Galaxy: 87\nAnt-Man: 80\nIron Man: 93\nThor: The Dark World: 72\nSpider-Man: Far From Home: 86\nThor: Ragnarok: 92\nAvengers: Endgame: 94\nAvengers: Age of Ultron: 78\nThe Avengers: 91\nBlack Panther: 98\nCaptain America: Civil War: 90\n"
+       tree.insert(root, iron_man)
+       tree.insert(root, endgame)
+       tree.insert(root, ant_man)
+       tree.insert(root, thor_3)
+       tree.insert(root, thor_2)
+       tree.insert(root, spider_man)
+       tree.insert(root, ultron)
+       tree.insert(root, avengers)
+       tree.insert(root, cap_america)
+       tree.insert(root, black_panther)
        expect { tree.printf }.to output(expected_output).to_stdout
      }
 
      specify {
-       expected_output = "The Matrix: 87\nBraveheart: 78\nMad Max 2: The Road Warrior: 98\nPacific Rim: 72\nInception: 86\nDistrict 9: 90\nStar Wars: Return of the Jedi: 80\nThe Shawshank Redemption: 91\nThe Martian: 92\nStar Wars: The Empire Strikes Back: 94\nStar Wars: A New Hope: 93\n"
-       tree.insert(root, mad_max_2)
-       tree.insert(root, district)
-       tree.insert(root, shawshank)
-       tree.insert(root, braveheart)
-       tree.insert(root, inception)
-       tree.insert(root, pacific_rim)
-       tree.insert(root, martian)
-       tree.insert(root, jedi)
-       tree.insert(root, empire)
-       tree.insert(root, hope)
+       expected_output = "Guardians of the Galaxy: 87\nAvengers: Age of Ultron: 78\nBlack Panther: 98\nThor: The Dark World: 72\nSpider-Man: Far From Home: 86\nCaptain America: Civil War: 90\nAnt-Man: 80\nThe Avengers: 91\nThor: Ragnarok: 92\nAvengers: Endgame: 94\nIron Man: 93\n"
+       tree.insert(root, black_panther)
+       tree.insert(root, cap_america)
+       tree.insert(root, avengers)
+       tree.insert(root, ultron)
+       tree.insert(root, spider_man)
+       tree.insert(root, thor_2)
+       tree.insert(root, thor_3)
+       tree.insert(root, ant_man)
+       tree.insert(root, endgame)
+       tree.insert(root, iron_man)
        expect { tree.printf }.to output(expected_output).to_stdout
      }
   end
