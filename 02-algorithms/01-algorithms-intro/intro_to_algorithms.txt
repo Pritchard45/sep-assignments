@@ -1,0 +1,66 @@
+Feeding the dog
+  Open food bag
+  Pick up cup
+  Use cup to scoop food
+  Locate Dog Bowl
+  Pour Food in Dog Bowl
+
+def feed_dog(dog_bowl_volume)
+  SET dog_food_volume to 100
+
+  IF dog_bowl_volume is 0 THEN
+
+    SUBTRACT one Cup from dog_food_volume
+
+    ADD one Cup to dog_bowl_volume
+  END
+  puts "dog was fed"
+END
+
+--------------------------------------------
+
+Calculating a tip
+  READ the receipt
+  Find Total
+  Read Total
+  COMPUTE tip = total * 0.2
+  Return Tip
+
+DEF tip(total)
+  IF receipt is present
+    READ total
+  CALCULATE Tip as total times 0.2
+  END
+  return TIP
+END
+
+---------------------------------------------
+
+Putting in contact lenses
+  Obtain contact case
+  Open left container
+    place contact on right_finger
+    with left_hand open left eye
+    place contact in left eye
+    blink twice
+  Open right container
+    place contact on left_finger
+    with right_hand open right_eye
+    place contact in right_eye
+    blink twice
+
+
+DEF insert_contact_lenses(eye)
+  SET left_case to 1
+  SET right_case to 1
+  SET left_eye to 0
+  SET right_eye to 0
+  for each eye
+    IF left_eye is 0 THEN
+      DECREMENT left_case
+      INCREMENT left_eye
+    IF right_eye is 0 THEN
+      DECREMENT right_case
+      INCREMENT right_eye
+    END
+END
