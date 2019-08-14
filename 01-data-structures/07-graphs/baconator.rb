@@ -6,13 +6,22 @@ class Baconator
     found = false
     queue.push(start)
     while(queue.size != 0)
+      count = queue.size
+        if count > 6
+          return count
+        end
       node = queue.shift
       node.film_actor_hash.each do |movie, actor_nodes|
+
+
         if !start.path_array.include?(movie)
           start.path_array.push(movie)
         end
         actor_nodes.each do |actor|
           if actor.name != "Kevin Bacon" && actor.visited == false
+            if actor.path_array.size == 1 && actor.name != "Kevin Bacon"
+              actor.visited = true
+            end
             queue.push(actor)
             actor.visited = true
           end
