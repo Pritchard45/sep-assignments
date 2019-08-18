@@ -1,0 +1,12 @@
+                user      system      total     real
+bucket sort   0.000044   0.000002   0.000046 (  0.000039)
+heap sort     0.000131   0.000005   0.000136 (  0.000127)
+quick sort    0.000561   0.000033   0.000594 (  0.000601)
+
+
+Looking at how much faster the bucket and heap sorting methods run compared to the quick sort,
+When data is randomized the chance of it already being organized goes up. Looking at my benchmark, data is randomized for each test.
+Therefore, with a more or less organized collection will make a difference in how fast a sorting method runs.
+
+Throughout multiple tests Bucket Sort is faster that Heap Sort which is faster than Quick Sort. When researching,
+I have found others to mention that Quick Sort should be the fastest.
