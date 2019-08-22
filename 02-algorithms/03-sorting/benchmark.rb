@@ -9,13 +9,13 @@ Benchmark.bm(1000) do |x|
   x.report("bucket sort") do
     bucket_sort(test_array)
   end
-  test_array.shuffle!
+  test_array.shuffle
   x.report("heap sort") do
     heap_sort(test_array)
   end
-  test_array.shuffle!
+  test_array.shuffle
   x.report("quick sort") do
-    quick_sort(test_array)
+    test_array.quicksort
   end
-  test_array.shuffle!
+  test_array.shuffle
 end

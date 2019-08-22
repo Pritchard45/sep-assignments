@@ -12,19 +12,16 @@ def bucket_sort(array, bucket_size = 5)
     buckets[i] = []
   end
 
-  (0..array.length - 1).each do |i|
-    buckets[((array[i] - min) / bucket_size).floor].push(array[i])
+  array.each do |item|
+    buckets[((item - min)/ bucket_size).floor] << item
   end
 
-  arr = []
-  (0..buckets.length - 1).each do |i|
-    buckets[i] = insertion_sort(buckets[i])
-    buckets[i].each do |value|
-      array.push(value)
-    end
+  sort_arr = []
+  buckets.each do |bucket|
+    new = insertion_sort(bucket)
+    sort_arr.concat(new)
   end
-
-  array
+  sort_arr
 end
 
 def insertion_sort(collection)
@@ -42,5 +39,5 @@ def insertion_sort(collection)
   sorted_array
 end
 
-# array = [3,4,5,6,7,10,11,9,8]
-# puts "#{bucket_sort(array)}"
+array = [3,4,5,6,7,10,11,9,8]
+puts "#{bucket_sort(array)}"
