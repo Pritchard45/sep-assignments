@@ -1,4 +1,5 @@
 def recursive_binary_search(array, value)
+  #removed include?
   for i in array
     if i === value
       mid_point = (array.length) / 2
