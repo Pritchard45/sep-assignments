@@ -1,0 +1,27 @@
+1) The Big-O of this algorithm is constant, O(1), because it will take the
+   same amount of time to complete.
+
+2) The Big-O of this algorithm is linear, O(n), because it is dependent on
+   the length of the collection. The larger the collection the longer the run time.
+
+3) The Big-O of this algorithm is linear, O(n), because it is dependent on the length
+   of the collection. The larger the collection the longer the run time. This is a
+   collection of collections but because it is dependent on the size of them and
+   nothing else, the larger the collections the bigger increase in run time.
+
+4) The Big-O of this algorithm is O(2^N). The double recursion and the fact that it
+   runs through itself recursively the larger it gets. With each increase in n it
+   runs through itself again for the previous number then the previous number
+   until n reaches back to 1 or 0. The algorithm grows exponentially because
+   of this as n increases.
+
+5) The Big-O of this algorithm is linear, O(n), The Fibonacci iterative can be solved
+   both iteratively and recursively. But because it loops through and does not call
+   itself the run time is based on how large the collection is.
+
+6) The Big-O of this algorithm is O(n^2), Quick Sort. Picks a pivot element, from the
+   collection, then if it happens to have a partition where one of the sublists
+   returned is a size of n - 1. This happens if the pivot is the smallest or largest
+   element in the collection. The more this happens in repeated partitions then
+   each recursive call processes a list of a size one less than the previous list.
+   Creating a linear chain of n - 1 nested calls.
