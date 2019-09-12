@@ -1,0 +1,27 @@
+Benchmark test
+                                          user     system      total        real
+Poorly written ruby code              0.001911   0.000005   0.001916 (  0.001920)
+Improving complexity version one      0.001277   0.000014   0.001291 (  0.001297)
+Improving complexity version two      0.001953   0.000162   0.002115 (  0.002120)
+Improving complexity version three    0.011226   0.000020   0.011246 (  0.011274)
+
+poorly: O(2^n)
+version one: O(n^2)
+version two: O(n log n)
+version three: O(1)
+
+******************COMMENTED CODE ******************************************************
+
+  Poorly written ruby code              0.001996   0.000030   0.002026 (  0.002068)
+  Improving complexity version one      0.001254   0.000003   0.001257 (  0.001262)
+  Improving complexity version two      0.000079   0.000007   0.000086 (  0.000091)
+  Improving complexity version three    0.000052   0.000001   0.000053 (  0.000052)
+
+
+
+  poorly: O(2^n)
+  version one: O(n^2)
+  version two: O(n log n)
+  version three: O(n log n)
+
+***************************************************************************************
