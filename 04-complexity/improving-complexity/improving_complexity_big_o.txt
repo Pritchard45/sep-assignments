@@ -19,9 +19,9 @@ version three: O(1)
 
 
 
-  poorly: O(2^n)
+  poorly: O(n)
   version one: O(n^2)
   version two: O(n log n)
-  version three: O(n log n)
+  version three: O(n^2)
 
 ***************************************************************************************
