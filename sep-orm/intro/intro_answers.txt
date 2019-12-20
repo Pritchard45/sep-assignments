@@ -1,0 +1,75 @@
+
+1) remove duplicates in a query response
+
+  ORM:  User.select(:full_name).distinct
+  SQL:  SELECT DISTINCT full_name FROM user;
+
+*******************************************************************************
+2) filter records using inequalities, pattern matching, ranges, and boolean logic
+
+  inequalities
+  ORM:  Post.where.not(user_id: 3)
+  SQL:  SELECT * FROM posts WHERE (posts.user_id != 3);
+
+  pattern matching
+  ORM:  comment = Comment.find(10)
+  SQL:  SELECT * FROM comments WHERE (comments.id = 10) LIMIT 1;
+
+  ranges
+  ORM:  Post.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+  SQL:  SELECT *
+        FROM posts
+        WHERE (posts.created_at
+          BETWEEN '2018-09-09 00:00:00'
+          AND '2018-09-10 00:00:00');
+
+
+
+  #if I where to add premium column
+
+  boolean logic
+  ORM:  User.where(premium: true)
+  SQL:  SELECT * FROM users WHERE premium = true;
+
+
+3) sort records in a particular order
+
+  ORM:  Post.order(created_at: :asc)
+  SQL:  SELECT * FROM posts ORDER BY orders_count ASC;
+
+2) limit the number of records returned
+
+  ORM:  Comment.limit(1)
+  SQL:  SELECT * FROM comments LIMIT 1;
+
+
+3) group records into sections
+
+  ORM:  Order.group(:user_id)
+  SQL:  SELECT status FROM orders GROUP BY user_id;
+
+
+4) perform calculations using aggregate functions
+
+  ORM:  Comment.average("comments_count")
+  SQL:  SELECT AVG(comments_count) FROM comments;
+
+
+5) join tables using cross join, inner join, and outer join
+
+cross join
+  ORM:  User.find_by_sql("SELECT * FROM users CROSS JOIN categories")
+  SQL:  SELECT * FROM users CROSS JOIN categories
+
+inner join
+  ORM:  Category.joins(:articles)
+  SQL:  SELECT categories.* FROM categories
+        INNER JOIN articles ON articles.category_id = categories.id
+
+outer join
+  ORM:  Author.left_outer_joins(:posts).distinct.select('authors.*, COUNT(posts.*) AS posts_count').group('authors.id')
+  SQL:  SELECT  DISTINCT authors.*,
+                COUNT(posts.*) AS posts_count
+        FROM "authors"
+        LEFT OUTER JOIN posts ON posts.author_id = authors.id
+        GROUP BY authors.id
